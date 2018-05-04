@@ -16,7 +16,7 @@
 
 //// Create a Start button that starts the timer when clicked
 
-var number = 120; // 2 minutes, this is your set time in seconds.
+var number = 10; // 1 minute, this is your set time in seconds.
 
 var intervalId; // reusable variable
 
@@ -26,6 +26,7 @@ $("#stop").on("click", stop); // stop button link
 
 function run() {
   intervalId = setInterval(decrement, 1000); // decrements every 1 millisecond.
+  $("#start").hide()
 }
 
 function decrement() {
@@ -59,9 +60,15 @@ function stop() {
 
 // checking the status of the answers in the trivia
 
+// op: make all the questions dynamically generated after clicking start, then have them clear after you click finish
+
+// when the timer is up .empty() the page and display the counter results.
+
+// .hide() the div to hide the start button on the front page 
+
 // question 1:
 
-function(check){
+function hello (check){
 
   var q1 = document.trivia-qs.q1.value;
   var q2 = document.trivia-qs.q2.value;
@@ -74,6 +81,8 @@ function(check){
   var q9 = document.trivia-qs.q9.value;
   var q10 = document.trivia-qs.q10.value;
   var correct = 0;
+  var wrong = 0;
+
 
 
 
@@ -83,30 +92,31 @@ function(check){
   if(q2 === "Cayenne Peppers"){
     correct++;
   }
-  if(q3 === "Chocolate"{
+  if(q3 === "Chocolate"){
     correct++;
   }
-  if(q4 === "Honey"{
+  if(q4 === "Honey"){
     correct++;
   }
-  if(q5 === "Reindeer Fat"{
+  if(q5 === "Reindeer Fat"){
     correct++;
   }
-  if(q6 === "Beetles"{
+  if(q6 === "Beetles"){
     correct++;
   }
-  if(q7 === "Apples"{
+  if(q7 === "Apples"){
     correct++;
   }
-  if(q8 === "Termites"{
+  if(q8 === "Termites"){
     correct++;
   }
-  if(q9 === "Pretzel"{
+  if(q9 === "Pretzel"){
     correct++;
-  } if(q10 === "Peach"{
+  } if(q10 === "Peach"){
     correct++;
   }
-
-}
+document.getElementById("#stop").style.visibility("visible");
+document.getElementById("#correct-answers").innerHTML("Correct: " + correct );
+ };
 
 

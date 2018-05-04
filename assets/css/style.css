@@ -1,0 +1,25 @@
+body {
+ color:yellow;
+ /* background-image: url('http://i64.tinypic.com/2exca54.jpg'); */
+ background-image: url('http://i64.tinypic.com/20jp9ph.jpg');
+}
+
+
+
+
+.container {
+  background-color:white;
+  padding: 20px;
+    
+}
+.container-fluid {
+    color: red;
+    padding: -150px;
+    font-size: 12px;
+    
+
+}
+
+.Header1{
+  
+}
