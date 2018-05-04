@@ -31,6 +31,8 @@ function run() {
 
 function decrement() {
 
+// function to decrement timer when started
+
   number--;
 
   $("#show-number").html("<h2>" + "You have " + number + " seconds left!" + "</h2>"); 
@@ -84,8 +86,6 @@ function hello (check){
   var wrong = 0;
 
 
-
-
   if(q1 === "Coconut Water"){
     correct++;
   }
@@ -115,8 +115,9 @@ function hello (check){
   } if(q10 === "Peach"){
     correct++;
   }
-document.getElementById("#stop").style.visibility("visible");
-document.getElementById("#correct-answers").innerHTML("Correct: " + correct );
+// document.getElementById("#stop").style.visibility("visible");
+// document.getElementById("#correct-answers").innerHTML("Correct: " + correct );
+$("#correct-answers").append("Correct: " + correct);
  };
 
 
