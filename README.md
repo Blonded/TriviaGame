@@ -24,25 +24,29 @@ images      /folder
 LICENSE
 README.md
 
-** coming soon
-<img src="DEMO PHOTO SRC" alt="Demo-photo">
+<img src="assets/images/demoTrivia.jpg" alt="Demo-photo">
 
 Sample of code used:
 
-HTML shown: this is a starter code example of creating the radio buttons used, with their functionality lying in JavaScript.
+JavaScript Shown: 
+This code is a function to run through the values taken to decipher what your final score is on the test.
+Add it up into it's individual groups of Right or Wrong.
 
 ''''''
- <form id="trivia-qs" name= "trivia-qs">
-        
-    <p> 1.   I was once used as an intravenous rehydration fluid when medical saline was unavailable, during World War 2.</p>
-        <input type="radio" name="q1" value="milk"> Milk<br>
-        <input type="radio" name="q1" value="coconut"> Coconut Water<br>
-        <input type="radio" name="q1" value="salt"> Salt Water<br>
-        <input type="radio" name="q1" value="lemon"> Lemon Juice<br>
-
-        .......
-
-    
+//this tests if the answers were wrong or right and displays the right vs wrong / score
+function logic (){
+  console.log("test")
+ for(var i = 0; i< trivia.length;i++){
+   if(trivia[i].correct === answers[i]){
+     correct++;
+     console.log("right",correct)
+   }else {
+     wrong++;
+     console.log("wrong",wrong)
+   }
+ }
+}
+   
 
 '''''
 

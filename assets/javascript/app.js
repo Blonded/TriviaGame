@@ -79,8 +79,8 @@ var trivia = [
     ]
 
 
- //  45 seconds, this is your set time in seconds.
-var number = 45;
+ //  25 seconds, this is your set time in seconds.
+var number = 25;
 
 // reusable variable, points to the procedure
 var intervalId; 
