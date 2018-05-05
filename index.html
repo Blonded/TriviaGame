@@ -4,6 +4,7 @@
  
     <title>Hungry Yet?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!-- BootStrap --> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -18,144 +19,47 @@
 <!-- Header -->
 
 <div class ="container">
-<div class="container-fluid">
+        
       
-<div class='Header1'> 
-    <div class= 'row1'>
-        <div class= col md 8>
+    <div class='Header1'> 
+        <div class= 'row1'>
+            <div class= col lg 12>
 
-    <h1> Food </h1>
-    <h3>Can't live without it.</h3>
-    <p> Ready to learn or test your knowledge? Click the start button!</p>
+        <h1>Hungry?</h1>
+        <h3>Let's see if you still are after you learn these facts!</h3>
+        <p>Click 'start' to begin the timer.</p>
 
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Timer -->
-
-<div id="show-number"> </div>
-
-<div id="buttons">
-    <!-- <div id="start-button"> -->
-    <button id="start"> Start </button>
-    </div>
-</div>
-
-
-<!-- Trivia Questions -->
-
-<div id= "trivia">
-
-    <form id="trivia-qs" name= "trivia-qs">
+    <div id="show-number">
         
-        
-    <p> 1.   I was once used as an intravenous rehydration fluid when medical saline was unavailable, during World War 2.</p>
-        <input type="radio" name="q1" value="milk"> Milk<br>
-        <input type="radio" name="q1" value="coconut"> Coconut Water<br>
-        <input type="radio" name="q1" value="salt"> Salt Water<br>
-        <input type="radio" name="q1" value="lemon"> Lemon Juice<br>
-    
-        <br>
-
-    <p> 2.   I contain a chemical compound called “Capsaicin” that bonds to your sensory nerves tricking them to think your mouth is being burned. </p>
-        <input type="radio" name="q2" value="pepper"> Cayenne Peppers<br>
-        <input type="radio" name="q2" value="onion"> Onion<br>
-        <input type="radio" name="q2" value="garlic"> Garlic<br>
-        <input type="radio" name="q2" value="ginger"> Ginger<br>
-
-        <br>
-
-
-    <p> 3.   I was once traded as a currency by The Aztecs with the Mayans.</p>
-        <input type="radio" name="q3" value="bourbon"> Bourbon<br>
-        <input type="radio" name="q3" value="bread"> Bread<br>
-        <input type="radio" name="q3" value="chocolate"> Chocolate<br>
-        <input type="radio" name="q3" value="vitamins"> Vitamins<br>
-
-        <br>
-
-    <p> 4.   I am the ONLY food that has an eternal shelf life, AKA I never expire. </p>
-        <input type="radio" name="q4" value="rice"> Rice<br>
-        <input type="radio" name="q4" value="cinnamon"> Cinnamon<br>
-        <input type="radio" name="q4" value="pasta"> Pasta<br>
-        <input type="radio" name="q4" value="honey"> Honey<br>
-    
-        <br>
-
-    <p> 5. Akutaq is a special version of ice cream containing which of the following:</p>
-        <input type="radio" name="q5" value="cow"> Cows Tongue<br>
-        <input type="radio" name="q5" value="reindeer"> Reindeer Fat<br>
-        <input type="radio" name="q5" value="scorpion dust"> Scorpion Dust<br>
-        <input type="radio" name="q5" value="seaweed"> Seaweed<br>
-
-        <br>
-
-    <p> 6.  The red food coloring: carmine (in your skittles) comes from: </p>
-        <input type="radio" name="q6" value="wine"> Red Wine<br>
-        <input type="radio" name="q6" value="chemical"> A Chemical Reaction<br>
-        <input type="radio" name="q6" value="roses"> Roses<br>
-        <input type="radio" name="q6" value="beetles"> Beetles<br>
-
-        <br>
-
-    <p> 7.  Which of the following floats in water because 25% of it’s volume is made of air: </p>
-        <input type="radio" name="q7" value="apples"> Apples<br>
-        <input type="radio" name="q7" value="cucumbers"> Cucumbers<br>
-        <input type="radio" name="q7" value="oranges"> Oranges<br>
-        <input type="radio" name="q7" value="carrots"> Carrots<br>
-
-        <br>
-
-    <p> 8.   In South Africa, I am often roasted and eaten by the handful:</p>
-        <input type="radio" name="q8" value="tail"> Fried Fish Tail<br>
-        <input type="radio" name="q8" value="potatoes"> Potatoes<br>
-        <input type="radio" name="q8" value="popcorn"> Popcorn<br>
-        <input type="radio" name="q8" value="termites"> Termites<br>
-
-        <br>
-
-    <p> 9.  The criss-cross design in this food, was originally meant to resemble folded arms in prayer: </p>
-        <input type="radio" name="q9" value="danish"> Danish<br>
-        <input type="radio" name="q9" value="pretzel"> Pretzel<br>
-        <input type="radio" name="q9" value="doughnut"> Doughnut<br>
-        <input type="radio" name="q9" value="pie"> Apple Pie<br>
-
-        <br>
-
-    <p> 10.  Almonds are a member of what family?</p>
-        <input type="radio" name="q10" value="peach"> Peach<br>
-        <input type="radio" name="q10" value="legume"> Legume<br>
-        <input type="radio" name="q10" value="nuts"> Tree Nuts<br>
-        <input type="radio" name="q10" value="avocado"> Avocado<br>
-
-        <br>
-
-        <input name="submit" type= "submit" value="submit" onclick="test(this.form")>
-</form>
-<!-- 
-        Create a finish button for the user to click when they are done answering the questions.
-        After clicking this it will then display results from the quiz -->
-
-
-        <!-- Stop button -->
-    <!-- <div class ="buttons">
-        <button id="stop"> <H2> Stop </H2></button>
-    </div> -->
-
-    <!-- Results -->
-
- 
-
-    <div id= "after_submit">
-        <div id= "correct-answers"> 
-            <p> You got: </p>
-        </p>
     </div>
-    <!-- This div ends results -->
 
-</div>
-<!-- This div ends container/fluid -->
+    <div id="buttons">
+        <!-- <div id="start-button"> -->
+        <button id="start"> Start </button>
+    </div>
+
+    <div id= "trivia">
+
+        <div id="trivia-qs">
+        </div>
+            <div id="correct-answers"> 
+                
+            </div>
+        <!-- This div ends results -->
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-center">
+                <button id="after_submit">Finished</button>
+             </div>          
+            <div class="col"></div>
+        </div>
+        <!-- ^ hides, hide -->
+    </div>
+    <!-- This div ends container/fluid -->
 </div>
 
 
@@ -168,6 +72,7 @@
 <script src="assets/javascript/app.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 

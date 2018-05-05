@@ -1,51 +1,160 @@
+// document ready waits for the document to load before it starts running the functions.
+$( document ).ready(function() {
+  
+
+  // trivia questions with answers and the selected 'correct' answer.
+
+var trivia = [
+    { 
+      q : "I was once used as an intravenous rehydration fluid when medical saline was unavailable, during World War 2.",
+      a : [
+        "Milk", "Lemon Juice", "Coconut Water", "Salt Water"
+      ],
+      correct: "Coconut Water"
+    },
+    { 
+      q : "I contain a chemical compound called Capsaicin that bonds to your sensory nerves tricking them to think your mouth is being burned.",
+      a: [
+        "Ginger", "Garlic", "Onion", "Cayenne Peppers"
+      ],
+      correct: "Cayenne Peppers"
+    },
+    {
+      q : "I was once traded as a currency by The Aztecs with the Mayans",
+      a : [
+        "Bourbon","Bread","Chocolate","Vitamins"
+      ],
+      correct: "Chocolate"
+    },
+    {
+      q: "I am the ONLY food that has an eternal shelf life, AKA I never expire.",
+      a: [
+        "Cinnamon","Rice","Pasta","Honey"
+      ],
+      correct: "Honey"
+    },
+    {
+      q: "Akutaq is a special version of ice cream containing which of the following:",
+      a: [
+        "Scorpion Dust","Seaweed","Reindeer Fat","Cows Tongue"
+      ],
+      correct: "Reindeer Fat"
+    },
+    {
+      q: "The red food coloring: carmine (in your skittles) comes from:",
+      a: [
+        "Chemical Reaction","Roses","Red Wine","Beetles"
+      ],
+      correct: "Beetles"
+    },
+    {
+      q: "Which of the following floats in water because 25% of it’s volume is made of air:",
+      a: [
+        "Oranges","Cucumbers","Apples","Carrots"
+      ],
+      correct: "Apples"
+    },
+    {
+      q: "In South Africa, I am often roasted and eaten by the handful:",
+      a: [
+        "Popcorn", "Potatoes", "Termites", "Fried Fish Tail"
+      ],
+      correct: "Termites"
+    },
+    {
+      q: "The criss-cross design in this food, was originally meant to resemble folded arms in prayer:",
+      a: [
+        "Apple Pie", "Pretzels", "Danish","Doughnut"
+      ],
+      correct: "Pretzels"
+    },
+    {
+      q: "Almonds are a member of what family?",
+      a: [
+        "Tree nuts", "Lugume", "Avocado", "Peach"
+      ],
+      correct: "Peach"
+    }
+
+    ]
 
 
-// Create 10 multiple choice q's and answer's in which you can only choose one.
+ //  45 seconds, this is your set time in seconds.
+var number = 45;
 
-// At the end click finish
+// reusable variable, points to the procedure
+var intervalId; 
 
-// when finish is clicked, it stops the timer.
+// variables for the correct and wrong answers, will be incremented and decremented through the functions
+var correct = 0;
+var wrong = 0;
 
-// when finished is clicked, you can see your score.
+// $("#start").on("click", run); // start button link
 
-// create a score board of what your score is:
-//// score how many you got wrong, right, and how many q's you had left.
+// function for the start button
+$("#start").on("click", function(){
+  event.preventDefault();
+  $("#after_submit").show();
+  run();
+  for(var i = 0; i < trivia.length; i++){
+    var wrap = $("<div>");
+    wrap.addClass("qWrap");
 
-// reset quiz / OR / play again button.
+    var question = $("<h5>");
+    question.addClass('graded mt-4');
+    question.attr('id', 'question' + i);
+    question.text(trivia[i].q);
+
+    var btnGroup = $("<div>").addClass("btnGroup");
+    for(var j = 0; j < trivia[i].a.length; j++){
+        var btn = $("<button>").addClass("option");
+        btn.attr("value", trivia[i].a[j]);
+        btn.attr("id", "btn-"+j);
+        btn.text(trivia[i].a[j]);
+        btn.attr("data-group", i);
+        $(btnGroup).append(btn);
+      
+    }
+    $(wrap).append(question, btnGroup);
+    $('#trivia-qs').append(wrap);
+  }
+
+ });
 
 
-//// Create a Start button that starts the timer when clicked
 
-var number = 10; // 1 minute, this is your set time in seconds.
 
-var intervalId; // reusable variable
+// stop button click
+$("#stop").on("click", stop); 
 
-$("#start").on("click", run); // start button link
-
-$("#stop").on("click", stop); // stop button link
-
+// function run that decrements the timer every set millisecond
 function run() {
-  intervalId = setInterval(decrement, 1000); // decrements every 1 millisecond.
+  intervalId = setInterval(decrement, 1000); 
   $("#start").hide()
+  
 }
-
+// function to decrement 
 function decrement() {
-
-// function to decrement timer when started
-
-  number--;
-
-  $("#show-number").html("<h2>" + "You have " + number + " seconds left!" + "</h2>"); 
-  // when start is clicked text appears
-
   if (number === 0) {
+    stop();
+    logic();
 
 // when the number hits 0, the timer will run through the function and stop.
 
-    stop();
 
-    // alert("Times Up!");
-    $("#show-number").html("<h2>" + "Times up!" + "</h2>");
+    $('#trivia-qs').empty();
+    console.log("r/w", correct,"/",wrong);
+    var correctAnswered = $("<h2>").text("correct:"+ correct);
+    var incorrectAnswered =  $("<h2>").text("wrong:"+ wrong);
+    $("#show-number").append(correctAnswered, incorrectAnswered );
+    $("#hello").hide();
+
+  } else  {
+
+    number--;
+// decrement time on the timer, and to display in the html how much time you have left on the game.
+    $("#show-number").html("<div" + " " + "id=hello" + ">" + "<h2>" + "You have " + number + " seconds left!" + "</h2>" + "</div>"); 
+  
   }
 }
 
@@ -55,69 +164,39 @@ function stop() {
 }
 
 
-//////
+// this is the value taken when the buttons are clicked
+var answers = [null, null]
+$(document).on("click", ".option", function(){
+  var index = $(this).attr("data-group");
+  $( "button[data-group='"+index+"']" ).removeClass("selected");
+  $(this).addClass("selected");
 
-// Trivia Questions
-// Radio buttons are used for singular choice amongst multiple questions
+  var answer = $(this).val();
+  answers.splice(index, 1, answer);
+  console.log(answers);
 
-// checking the status of the answers in the trivia
+})
+//this tests if the answers were wrong or right and displays the right vs wrong / score
+function logic (){
+  console.log("test")
+ for(var i = 0; i< trivia.length;i++){
+   if(trivia[i].correct === answers[i]){
+     correct++;
+     console.log("right",correct)
+   }else {
+     wrong++;
+     console.log("wrong",wrong)
+   }
+ }
+}
+//to hide the button after its clicked.
+$("#after_submit").on("click", function(){
+  $("#after_submit").hide();
+})
 
-// op: make all the questions dynamically generated after clicking start, then have them clear after you click finish
-
-// when the timer is up .empty() the page and display the counter results.
-
-// .hide() the div to hide the start button on the front page 
-
-// question 1:
-
-function hello (check){
-
-  var q1 = document.trivia-qs.q1.value;
-  var q2 = document.trivia-qs.q2.value;
-  var q3 = document.trivia-qs.q3.value;
-  var q4 = document.trivia-qs.q4.value;
-  var q5 = document.trivia-qs.q5.value;
-  var q6 = document.trivia-qs.q6.value;
-  var q7 = document.trivia-qs.q7.value;
-  var q8 = document.trivia-qs.q8.value;
-  var q9 = document.trivia-qs.q9.value;
-  var q10 = document.trivia-qs.q10.value;
-  var correct = 0;
-  var wrong = 0;
+$("#after_submit").hide();
 
 
-  if(q1 === "Coconut Water"){
-    correct++;
-  }
-  if(q2 === "Cayenne Peppers"){
-    correct++;
-  }
-  if(q3 === "Chocolate"){
-    correct++;
-  }
-  if(q4 === "Honey"){
-    correct++;
-  }
-  if(q5 === "Reindeer Fat"){
-    correct++;
-  }
-  if(q6 === "Beetles"){
-    correct++;
-  }
-  if(q7 === "Apples"){
-    correct++;
-  }
-  if(q8 === "Termites"){
-    correct++;
-  }
-  if(q9 === "Pretzel"){
-    correct++;
-  } if(q10 === "Peach"){
-    correct++;
-  }
-// document.getElementById("#stop").style.visibility("visible");
-// document.getElementById("#correct-answers").innerHTML("Correct: " + correct );
-$("#correct-answers").append("Correct: " + correct);
- };
 
+});
 

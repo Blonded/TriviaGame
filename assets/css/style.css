@@ -1,27 +1,28 @@
 body {
  background-image: url('http://i64.tinypic.com/20jp9ph.jpg');
- 
-
-
 }
-
-
-
 
 .container {
   background-color:white;
   padding: 20px;
   font-family: 'Cabin Sketch', cursive;
+  color: red;
+  padding: -150px;
+  font-size: 12px;
     
 }
-.container-fluid {
-    color: red;
-    padding: -150px;
-    font-size: 12px;
-    
 
+
+#after_submit{
+    margin-top: 40px;
 }
-
-.Header1{
-  
+.buttons{
+    padding: 30px;
+    margin: 300px;
+}
+.option:hover {
+    background-color: rgba(255,0,0, .7);
+}
+.selected {
+    background-color: red;
 }
