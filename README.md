@@ -60,7 +60,7 @@ function logic (){
 
 ## Authors
 
-* **Lena Martinson** - *Github* - [Github](https://github.com/Blonded)
+* **Lena Blonded** - *Github* - [Github](https://github.com/Blonded)
 * **Google Fonts** - *GoogleFonts* - [Google Fonts](https://fonts.google.com/)
 * **BootStrap** - *Bootstrap* - [BootStrap](https://getbootstrap.com/)
 
